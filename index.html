@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <title></title>
+
+</head>
+<h1>TODO</h1>
+  <body>
+  <div id="timer">&nbsp;</div>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <style type="text/css">
+  #timer {
+      width:430px;
+      line-height:40px;
+      border:3px double #999;
+      font-family:verdana,arial,helvetica,sans-serif;
+      font-size:1em;
+      text-align:center;
+      margin:40px auto;
+   }
+   body{
+     margin: 0 auto;
+     text-align: center;
+     font-family: : arial sans-serif 
+   }
+   .title{
+     text-transform: uppercase;
+   }
+  </style>
+
+  <script type="text/javascript">
+  window.onload=function() {
+     doTime('oct,02,2019,00:00:00');
+   }
+  function doTime(then) {
+
+     now=new Date ();
+     then=new Date (then);
+
+     difference=(now-then);
+
+     days=Math.floor(difference/(60*60*1000*24)*1);
+     hours=Math.floor((difference%(60*60*1000*24))/(60*60*1000)*1);
+     mins=Math.floor(((difference%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
+     secs=Math.floor((((difference%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
+
+     document.getElementById('timer').firstChild.nodeValue=
+
+       days+'d '+hours+'h '+mins+' m '+secs+'s';
+     clearTimeout(doTime.to);
+     doTime.to=setTimeout(function(){ doTime(then); },1000);
+   }
+  </script>
+  <h1 class="title">Without accident</h1>
+  </body>
+
+</html>
